@@ -1,0 +1,48 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  > * {
+    max-width: 100%;
+    grid-column: span $number-columns;
+  }
+}
+
+.col {
+  flex: 1 0 0%;
+  grid-column: span $number-columns;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+@for $i from 1 through $number-columns {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+  .col-offset-#{$i} {
+    margin-left: calc((100% / $number-columns) * $i);
+  }
+}
+/*
+==========================================================================================
+==================================== RESPONSIVE ==========================================
+==========================================================================================
+*/
+@each $key, $value in $flex-breakpoints {
+  @media (min-width: #{$value}) {
+    @for $i from 1 through $number-columns {
+      .col-#{$key}-#{$i} {
+        grid-column: span $i;
+      }
+      .col-offset-#{$key}-#{$i} {
+        margin-left: calc((100% / $number-columns) * $i);
+      }
+    }
+  }
+}

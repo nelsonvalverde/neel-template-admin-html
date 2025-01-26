@@ -1,13 +1,24 @@
 :root {
+  //container
+  --nv-container-padding: 2.5rem 2.5rem;
+
+  //controls
   --nv-control-border-width: 1px;
   --nv-control-border-width-hover: 2px;
   --nv-control-border-radius: 0.3rem;
-  --nv-control-box-shadow: 0 0.2rem 0.75rem 0 rgba(47, 43, 61, 0.14);
+  --nv-control-border-radius-rounded: 1rem;
+  --nv-control-box-shadow: 0 2px 4px 0 var(--nv-primary-shadow);
   --nv-control-padding-inline: 0.5rem;
+  --nv-control-padding: 0.45rem 0.25rem;
   --nv-control-color: #444050;
   --nv-control-border-color: #d1d0d4;
   --nv-control-font-size: 14px;
   --nv-control-help-color: #9590a3;
+
+  //card
+  --nv-card-border-radius: 0.75rem;
+  --nv-card-padding: 1.5rem;
+  --nv-card-box-shadow: -1px -1px 8px 1px var(--nv-muted);
 }
 :root,
 [data-theme="light"] {
@@ -35,6 +46,8 @@
   --nv-danger: #ff4c51;
   --nv-light: #dfdfe3;
   --nv-dark: #4b4b4b;
+  --nv-primary-shadow: rgba(115, 103, 240, 0.3);
+  --nv-muted: rgba(136, 136, 136, 0.2);
   --nv-primary-rgb: 115, 103, 240;
   --nv-secondary-rgb: 128, 131, 144;
   --nv-success-rgb: 40, 199, 111;
@@ -47,6 +60,18 @@
 }
 
 $number-columns: 12;
-$row-horizontal-padding: 0.75rem;
-$col-vertical-padding: 0.75rem;
-$column-offset-spacing: 1rem;
+$flex-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+$spacing-scale: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 2rem,
+);

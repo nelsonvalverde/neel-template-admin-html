@@ -3,6 +3,10 @@
 @import "./abstracts/mixins";
 @import "./abstracts/placeholders";
 @import "./abstracts/variables";
+
+//Utilities
+@import "./utilities/spacing";
+
 //Vendors
 @import "./vendors/bootstrap";
 //Base
@@ -11,10 +15,12 @@
 //Layout
 @import "./layout/footer";
 @import "./layout/forms";
-@import "./layout/flexbox";
+@import "./layout/grid";
 @import "./layout/header";
 @import "./layout/navigation";
 @import "./layout/sidebar";
+@import "./layout/card";
+@import "./layout/container";
 //Components
 @import "./components/buttons";
 @import "./components/carousel";
