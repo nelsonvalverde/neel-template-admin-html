@@ -1,16 +1,11 @@
 .row {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat($number-columns, 1fr);
+  gap: var(--nv-grid-gap);
   > * {
     max-width: 100%;
     grid-column: span $number-columns;
   }
-}
-
-.col {
-  flex: 1 0 0%;
-  grid-column: span $number-columns;
 }
 
 .d-flex {

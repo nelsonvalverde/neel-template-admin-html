@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --nv-grid-gap: 1rem;
   --nv-container-padding: 2.5rem 2.5rem;
   --nv-control-border-width: 1px;
   --nv-control-border-width-hover: 2px;
@@ -1530,15 +1531,10 @@ h6 {
 .row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  gap: var(--nv-grid-gap);
 }
 .row > * {
   max-width: 100%;
-  grid-column: span 12;
-}
-
-.col {
-  flex: 1 0 0%;
   grid-column: span 12;
 }
 
