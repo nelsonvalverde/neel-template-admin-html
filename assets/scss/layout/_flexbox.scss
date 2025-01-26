@@ -1,0 +1,91 @@
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las columnas se ajusten a nuevas filas */
+  padding-left: $row-horizontal-padding;
+  padding-right: $row-horizontal-padding;
+  > * {
+    max-width: 100%;
+  }
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-top: $col-vertical-padding;
+  padding-bottom: $col-vertical-padding;
+}
+
+@for $i from 1 through $number-columns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    padding-top: $col-vertical-padding;
+    padding-bottom: $col-vertical-padding;
+    width: calc((100% / $number-columns) * $i);
+  }
+  .col-offset-#{$i} {
+    margin-left: calc((100% / $number-columns) * $i);
+  }
+}
+/*
+==========================================================================================
+==================================== RESPONSIVE ==========================================
+==========================================================================================
+*/
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  @for $i from 1 through $number-columns {
+    .col-xs-#{$i} {
+      flex: 0 0 auto;
+      padding-top: $col-vertical-padding;
+      padding-bottom: $col-vertical-padding;
+      width: calc((100% / $number-columns) * $i);
+    }
+    .col-offset-xs-#{$i} {
+      margin-left: calc((100% / $number-columns) * $i);
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  @for $i from 1 through $number-columns {
+    .col-sm-#{$i} {
+      flex: 0 0 auto;
+      padding-top: $col-vertical-padding;
+      padding-bottom: $col-vertical-padding;
+      width: calc((100% / $number-columns) * $i);
+    }
+    .col-offset-sm-#{$i} {
+      margin-left: calc((100% / $number-columns) * $i);
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  @for $i from 1 through $number-columns {
+    .col-md-#{$i} {
+      flex: 0 0 auto;
+      padding-top: $col-vertical-padding;
+      padding-bottom: $col-vertical-padding;
+      width: calc((100% / $number-columns) * $i);
+    }
+    .col-offset-md-#{$i} {
+      margin-left: calc((100% / $number-columns) * $i);
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  @for $i from 1 through $number-columns {
+    .col-lg-#{$i} {
+      flex: 0 0 auto;
+      padding-top: $col-vertical-padding;
+      padding-bottom: $col-vertical-padding;
+      width: calc((100% / $number-columns) * $i);
+    }
+    .col-offset-lg-#{$i} {
+      margin-left: calc((100% / $number-columns) * $i);
+    }
+  }
+}

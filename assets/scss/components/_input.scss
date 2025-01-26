@@ -1,0 +1,17 @@
+.form-control {
+  appearance: none;
+  background-color: var(--nv-white);
+  padding: 0.35rem 0.25rem;
+  border-radius: var(--nv-control-border-radius);
+  padding-inline: var(--nv-control-padding-inline);
+  display: flex;
+  border: var(--nv-control-border-width) solid var(--nv-control-border-color);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 100%;
+  &:hover,
+  &:focus {
+    border-width: var(--nv-control-border-width-hover);
+    border-color: var(--nv-primary);
+    box-shadow: var(--nv-control-box-shadow);
+  }
+}

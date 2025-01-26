@@ -1,0 +1,10 @@
+.form-group {
+  > label {
+    font-size: var(--nv-control-font-size);
+  }
+  > .help {
+    font-size: 12px;
+    color: var(--nv-control-help-color);
+    font-family: "Font-Regular";
+  }
+}
