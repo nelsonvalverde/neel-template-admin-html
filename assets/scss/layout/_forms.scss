@@ -1,4 +1,6 @@
+$align-icon: 0.75rem;
 .form-group {
+  position: relative;
   > label {
     font-size: var(--nv-control-font-size);
   }
@@ -7,8 +9,40 @@
     color: var(--nv-control-help-color);
     font-family: "Font-Regular";
   }
+  &:has(> .icon-left) {
+    > .form-control {
+      padding-left: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
+    }
+  }
+
+  &:has(> .icon-right) {
+    > .form-control {
+      padding-right: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
+    }
+  }
+  > .icon {
+    position: absolute;
+    top: 0.4rem;
+    color: var(--nv-dark);
+    &.icon-right {
+      right: $align-icon;
+    }
+    &.icon-left {
+      left: $align-icon;
+    }
+  }
   &.floating-label {
-    position: relative;
+    &:has(> .icon-left) {
+      > label {
+        left: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
+      }
+    }
+
+    &:has(> .icon-right) {
+      > label {
+        right: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
+      }
+    }
     > label {
       position: absolute;
       top: 1rem;
@@ -23,9 +57,9 @@
         color: transparent;
       }
     }
-    &:has(> .form-control:focus) {
+    &:has(> .form-control:focus, > .form-control:not(:placeholder-shown)) {
       > label {
-        top: -0.75rem;
+        top: -0.85rem;
         left: 0;
         color: var(--nv-control-color);
       }
