@@ -22,6 +22,7 @@
   --nv-card-border-radius: 0.75rem;
   --nv-card-padding: 1.5rem;
   --nv-card-box-shadow: -1px -1px 8px 1px var(--nv-muted);
+
 }
 :root,
 [data-theme="light"] {
@@ -51,6 +52,7 @@
   --nv-dark: #4b4b4b;
   --nv-primary-shadow: rgba(115, 103, 240, 0.3);
   --nv-muted: rgba(136, 136, 136, 0.2);
+  --nv-placeholder: rgba(136, 136, 136, 0.5);
   --nv-primary-rgb: 115, 103, 240;
   --nv-secondary-rgb: 128, 131, 144;
   --nv-success-rgb: 40, 199, 111;

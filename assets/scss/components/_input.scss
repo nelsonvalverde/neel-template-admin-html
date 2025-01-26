@@ -9,11 +9,53 @@
   box-sizing: border-box;
   outline: 0;
   display: block;
+  margin-top: 0.25rem;
+  &::placeholder {
+    color: var(--nv-placeholder);
+    font-family: "Font-Medium";
+    font-size: var(--nv-control-font-size);
+  }
   &:hover,
   &:focus {
     border-width: var(--nv-control-border-width-hover);
     border-color: var(--nv-primary);
     box-shadow: var(--nv-control-box-shadow);
+  }
+  &.primary {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-primary);
+    }
+  }
+  &.success {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-success);
+    }
+  }
+  &.info {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-info);
+    }
+  }
+  &.warning {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-warning);
+    }
+  }
+  &.danger {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-danger);
+    }
+  }
+  &.secondary {
+    &:hover,
+    &:focus {
+      border-color: var(--nv-secondary);
+    }
   }
   &.rounded {
     border-radius: var(--nv-control-border-radius-rounded);

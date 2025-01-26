@@ -46,6 +46,7 @@
   --nv-dark: #4b4b4b;
   --nv-primary-shadow: rgba(115, 103, 240, 0.3);
   --nv-muted: rgba(136, 136, 136, 0.2);
+  --nv-placeholder: rgba(136, 136, 136, 0.5);
   --nv-primary-rgb: 115, 103, 240;
   --nv-secondary-rgb: 128, 131, 144;
   --nv-success-rgb: 40, 199, 111;
@@ -1527,6 +1528,29 @@ h6 {
   color: var(--nv-control-help-color);
   font-family: "Font-Regular";
 }
+.form-group.floating-label {
+  position: relative;
+}
+.form-group.floating-label > label {
+  position: absolute;
+  top: 1rem;
+  left: var(--nv-control-padding-inline);
+  transform: translateY(-50%);
+  transition: top 0.3s ease-in-out, left 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: var(--nv-placeholder);
+  cursor: text;
+}
+.form-group.floating-label > .form-control::-moz-placeholder {
+  color: transparent;
+}
+.form-group.floating-label > .form-control::placeholder {
+  color: transparent;
+}
+.form-group.floating-label:has(> .form-control:focus) > label {
+  top: -0.75rem;
+  left: 0;
+  color: var(--nv-control-color);
+}
 
 .row {
   display: grid;
@@ -2122,11 +2146,40 @@ h6 {
   box-sizing: border-box;
   outline: 0;
   display: block;
+  margin-top: 0.25rem;
+}
+.form-control::-moz-placeholder {
+  color: var(--nv-placeholder);
+  font-family: "Font-Medium";
+  font-size: var(--nv-control-font-size);
+}
+.form-control::placeholder {
+  color: var(--nv-placeholder);
+  font-family: "Font-Medium";
+  font-size: var(--nv-control-font-size);
 }
 .form-control:hover, .form-control:focus {
   border-width: var(--nv-control-border-width-hover);
   border-color: var(--nv-primary);
   box-shadow: var(--nv-control-box-shadow);
+}
+.form-control.primary:hover, .form-control.primary:focus {
+  border-color: var(--nv-primary);
+}
+.form-control.success:hover, .form-control.success:focus {
+  border-color: var(--nv-success);
+}
+.form-control.info:hover, .form-control.info:focus {
+  border-color: var(--nv-info);
+}
+.form-control.warning:hover, .form-control.warning:focus {
+  border-color: var(--nv-warning);
+}
+.form-control.danger:hover, .form-control.danger:focus {
+  border-color: var(--nv-danger);
+}
+.form-control.secondary:hover, .form-control.secondary:focus {
+  border-color: var(--nv-secondary);
 }
 .form-control.rounded {
   border-radius: var(--nv-control-border-radius-rounded);
