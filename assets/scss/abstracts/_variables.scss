@@ -5,24 +5,29 @@
   //container
   --nv-container-padding: 2.5rem 2.5rem;
 
-  //controls
+  //controls - General
   --nv-control-border-width: 1px;
   --nv-control-border-width-hover: 2px;
   --nv-control-border-radius: 0.3rem;
   --nv-control-border-radius-rounded: 1rem;
-  --nv-control-box-shadow: 0 2px 4px 0 var(--nv-primary-shadow);
+  --nv-control-box-shadow: 0 2px 4px 0 var(--nv-muted);
   --nv-control-padding-inline: 0.5rem;
   --nv-control-padding: 0.45rem 0.25rem;
   --nv-control-color: #444050;
   --nv-control-border-color: #d1d0d4;
   --nv-control-font-size: 14px;
   --nv-control-help-color: #9590a3;
+  --nv-control-transition-timer: 0.2s;
 
+  //Buttons
+  --nv-btn-padding: 0.45rem 1rem;
+  --nv-btn-border-radius: 0.45rem;
+  --nv-btn-border-radius-rounded: 1rem;
+  --nv-btn-icon-rounded: 0.35rem 0.5rem;
   //card
   --nv-card-border-radius: 0.75rem;
   --nv-card-padding: 1.5rem;
   --nv-card-box-shadow: -1px -1px 8px 1px var(--nv-muted);
-
 }
 :root,
 [data-theme="light"] {

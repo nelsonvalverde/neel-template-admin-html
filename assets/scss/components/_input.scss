@@ -4,7 +4,8 @@
   border-radius: var(--nv-control-border-radius);
   padding-inline: var(--nv-control-padding-inline);
   border: var(--nv-control-border-width) solid var(--nv-control-border-color);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color var(--nv-control-transition-timer) ease-in-out,
+    box-shadow var(--nv-control-transition-timer) ease-in-out;
   width: 100%;
   box-sizing: border-box;
   outline: 0;
