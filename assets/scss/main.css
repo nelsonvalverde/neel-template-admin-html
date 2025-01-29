@@ -18,6 +18,17 @@
   --nv-btn-border-radius: 0.45rem;
   --nv-btn-border-radius-rounded: 1rem;
   --nv-btn-icon-rounded: 0.35rem 0.5rem;
+  --nv-switch-border-color: #444050;
+  --nv-switch-width: 2.65rem;
+  --nv-switch-height: 1.5rem;
+  --nv-switch-check-width: 1.2rem;
+  --nv-switch-check-displacement: 0.2rem;
+  --nv-switch-border-radius: 0.3rem;
+  --nv-switch-box-shadow: 0px 0px 4px 1px var(--nv-muted);
+  --nv-switch-line-rounded: 1rem;
+  --nv-switch-line-width: 2.1rem;
+  --nv-switch-line-height: .75rem;
+  --nv-switch-line-height-2: .25rem;
   --nv-card-border-radius: 0.75rem;
   --nv-card-padding: 1.5rem;
   --nv-card-box-shadow: -1px -1px 8px 1px var(--nv-muted);
@@ -9781,10 +9792,10 @@ h6 {
   color: var(--nv-control-help-color);
   font-family: "Font-Regular";
 }
-.form-group:has(> .icon-left) > .form-control {
+.form-group:has(> .icon-left) > .form-input {
   padding-left: calc(var(--nv-control-padding-inline) + 1.5rem);
 }
-.form-group:has(> .icon-right) > .form-control {
+.form-group:has(> .icon-right) > .form-input {
   padding-right: calc(var(--nv-control-padding-inline) + 1.5rem);
 }
 .form-group > .icon {
@@ -9813,18 +9824,18 @@ h6 {
   color: var(--nv-placeholder);
   cursor: text;
 }
-.form-group.floating-label > .form-control::-moz-placeholder {
+.form-group.floating-label > .form-input::-moz-placeholder {
   color: transparent;
 }
-.form-group.floating-label > .form-control::placeholder {
+.form-group.floating-label > .form-input::placeholder {
   color: transparent;
 }
-.form-group.floating-label:has(> .form-control:focus, > .form-control:not(:-moz-placeholder-shown)) > label {
+.form-group.floating-label:has(> .form-input:focus, > .form-input:not(:-moz-placeholder-shown)) > label {
   top: -0.85rem;
   left: 0;
   color: var(--nv-control-color);
 }
-.form-group.floating-label:has(> .form-control:focus, > .form-control:not(:placeholder-shown)) > label {
+.form-group.floating-label:has(> .form-input:focus, > .form-input:not(:placeholder-shown)) > label {
   top: -0.85rem;
   left: 0;
   color: var(--nv-control-color);
@@ -10522,7 +10533,7 @@ h6 {
   padding-right: 0.25rem;
 }
 
-.form-control {
+.form-input {
   background-color: var(--nv-white);
   padding: var(--nv-control-padding);
   border-radius: var(--nv-control-border-radius);
@@ -10536,39 +10547,286 @@ h6 {
   margin-top: 0.25rem;
   line-height: 1rem;
 }
-.form-control::-moz-placeholder {
+.form-input::-moz-placeholder {
   color: var(--nv-placeholder);
   font-family: "Font-Medium";
   font-size: var(--nv-control-font-size);
 }
-.form-control::placeholder {
+.form-input::placeholder {
   color: var(--nv-placeholder);
   font-family: "Font-Medium";
   font-size: var(--nv-control-font-size);
 }
-.form-control:hover, .form-control:focus {
+.form-input:hover, .form-input:focus {
   border-width: var(--nv-control-border-width-hover);
   border-color: var(--nv-primary);
   box-shadow: var(--nv-control-box-shadow);
 }
-.form-control.primary:hover, .form-control.primary:focus {
+.form-input.primary:hover, .form-input.primary:focus {
   border-color: var(--nv-primary);
 }
-.form-control.success:hover, .form-control.success:focus {
+.form-input.success:hover, .form-input.success:focus {
   border-color: var(--nv-success);
 }
-.form-control.info:hover, .form-control.info:focus {
+.form-input.info:hover, .form-input.info:focus {
   border-color: var(--nv-info);
 }
-.form-control.warning:hover, .form-control.warning:focus {
+.form-input.warning:hover, .form-input.warning:focus {
   border-color: var(--nv-warning);
 }
-.form-control.danger:hover, .form-control.danger:focus {
+.form-input.danger:hover, .form-input.danger:focus {
   border-color: var(--nv-danger);
 }
-.form-control.secondary:hover, .form-control.secondary:focus {
+.form-input.secondary:hover, .form-input.secondary:focus {
   border-color: var(--nv-secondary);
 }
-.form-control.rounded {
+.form-input.rounded {
   border-radius: var(--nv-control-border-radius-rounded);
+}
+
+.form-switch {
+  display: inline-flex;
+}
+.form-switch > input {
+  display: none;
+}
+.form-switch > label {
+  cursor: pointer;
+  position: relative;
+  background-color: var(--nv-white);
+  width: var(--nv-switch-width);
+  height: var(--nv-switch-height);
+  border-radius: var(--nv-switch-border-radius);
+  box-shadow: var(--nv-switch-box-shadow);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  transition: background-color var(--nv-control-transition-timer) ease-in-out;
+  border: var(--nv-control-border-width) solid var(--nv-control-color);
+}
+.form-switch > label::before {
+  content: "";
+  position: absolute;
+  background-color: var(--nv-control-color);
+  width: var(--nv-switch-check-width);
+  height: calc(var(--nv-switch-height) - 6px);
+  border-radius: var(--nv-switch-border-radius);
+  left: var(--nv-switch-check-displacement);
+  transition: left var(--nv-control-transition-timer) ease-in-out, background-color var(--nv-control-transition-timer) ease-in-out;
+}
+.form-switch:has(> input:checked) > label {
+  background-color: var(--nv-control-color);
+}
+.form-switch:has(> input:checked) > label::before {
+  left: calc(100% - var(--nv-switch-check-displacement) - var(--nv-switch-check-width) - 0.025rem);
+  background-color: var(--nv-white);
+}
+.form-switch.primary > label {
+  border-color: var(--nv-primary);
+}
+.form-switch.primary > label::before {
+  background-color: var(--nv-primary);
+}
+.form-switch.primary:has(> input:checked) > label {
+  background-color: var(--nv-primary);
+}
+.form-switch.success > label {
+  border-color: var(--nv-success);
+}
+.form-switch.success > label::before {
+  background-color: var(--nv-success);
+}
+.form-switch.success:has(> input:checked) > label {
+  background-color: var(--nv-success);
+}
+.form-switch.info > label {
+  border-color: var(--nv-info);
+}
+.form-switch.info > label::before {
+  background-color: var(--nv-info);
+}
+.form-switch.info:has(> input:checked) > label {
+  background-color: var(--nv-info);
+}
+.form-switch.warning > label {
+  border-color: var(--nv-warning);
+}
+.form-switch.warning > label::before {
+  background-color: var(--nv-warning);
+}
+.form-switch.warning:has(> input:checked) > label {
+  background-color: var(--nv-warning);
+}
+.form-switch.danger > label {
+  border-color: var(--nv-danger);
+}
+.form-switch.danger > label::before {
+  background-color: var(--nv-danger);
+}
+.form-switch.danger:has(> input:checked) > label {
+  background-color: var(--nv-danger);
+}
+.form-switch.secondary > label {
+  border-color: var(--nv-secondary);
+}
+.form-switch.secondary > label::before {
+  background-color: var(--nv-secondary);
+}
+.form-switch.secondary:has(> input:checked) > label {
+  background-color: var(--nv-secondary);
+}
+.form-switch.rounded > label {
+  border-radius: var(--nv-switch-line-rounded);
+}
+.form-switch.rounded > label::before {
+  border-radius: var(--nv-switch-line-rounded);
+}
+
+.form-switch-line {
+  display: inline-flex;
+}
+.form-switch-line > input {
+  display: none;
+}
+.form-switch-line > label {
+  cursor: pointer;
+  position: relative;
+  width: var(--nv-switch-line-width);
+  height: var(--nv-switch-height);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  transition: background-color var(--nv-control-transition-timer) ease-in-out;
+}
+.form-switch-line > label::before {
+  content: "";
+  position: absolute;
+  border-radius: var(--nv-switch-border-radius);
+  z-index: 20;
+  border: var(--nv-control-border-width) solid var(--nv-control-color);
+  border-radius: var(--nv-switch-line-rounded);
+  background-color: white;
+  width: var(--nv-switch-check-width);
+  height: calc(var(--nv-switch-height) - 6px);
+  left: 0;
+  transition: left var(--nv-control-transition-timer) ease-in-out, background-color var(--nv-control-transition-timer) ease-in-out;
+  box-shadow: var(--nv-switch-box-shadow);
+}
+.form-switch-line > label::after {
+  content: "";
+  z-index: 10;
+  height: var(--nv-switch-line-height);
+  width: 100%;
+  background-color: var(--nv-control-color);
+  border-radius: var(--nv-switch-line-rounded);
+  position: absolute;
+  left: 0;
+  transition: left var(--nv-control-transition-timer) ease-in-out, background-color var(--nv-control-transition-timer) ease-in-out;
+}
+.form-switch-line:has(> input:checked) > label {
+  background-color: unset;
+}
+.form-switch-line:has(> input:checked) > label::before {
+  left: calc(100% - var(--nv-switch-check-width));
+  background-color: var(--nv-control-color);
+}
+.form-switch-line:has(> input:checked) > label::after {
+  background-color: unset;
+  border: var(--nv-control-border-width) solid var(--nv-control-color);
+}
+.form-switch-line.primary > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-primary);
+}
+.form-switch-line.primary > label::after {
+  background-color: var(--nv-primary);
+}
+.form-switch-line.primary:has(> input:checked) > label::before {
+  background-color: var(--nv-primary);
+}
+.form-switch-line.primary:has(> input:checked) > label::after {
+  border-color: var(--nv-primary);
+}
+.form-switch-line.success > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-success);
+}
+.form-switch-line.success > label::after {
+  background-color: var(--nv-success);
+}
+.form-switch-line.success:has(> input:checked) > label::before {
+  background-color: var(--nv-success);
+}
+.form-switch-line.success:has(> input:checked) > label::after {
+  border-color: var(--nv-success);
+}
+.form-switch-line.info > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-info);
+}
+.form-switch-line.info > label::after {
+  background-color: var(--nv-info);
+}
+.form-switch-line.info:has(> input:checked) > label::before {
+  background-color: var(--nv-info);
+}
+.form-switch-line.info:has(> input:checked) > label::after {
+  border-color: var(--nv-info);
+}
+.form-switch-line.warning > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-warning);
+}
+.form-switch-line.warning > label::after {
+  background-color: var(--nv-warning);
+}
+.form-switch-line.warning:has(> input:checked) > label::before {
+  background-color: var(--nv-warning);
+}
+.form-switch-line.warning:has(> input:checked) > label::after {
+  border-color: var(--nv-warning);
+}
+.form-switch-line.danger > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-danger);
+}
+.form-switch-line.danger > label::after {
+  background-color: var(--nv-danger);
+}
+.form-switch-line.danger:has(> input:checked) > label::before {
+  background-color: var(--nv-danger);
+}
+.form-switch-line.danger:has(> input:checked) > label::after {
+  border-color: var(--nv-danger);
+}
+.form-switch-line.secondary > label::before {
+  border: var(--nv-control-border-width) solid var(--nv-secondary);
+}
+.form-switch-line.secondary > label::after {
+  background-color: var(--nv-secondary);
+}
+.form-switch-line.secondary:has(> input:checked) > label::before {
+  background-color: var(--nv-secondary);
+}
+.form-switch-line.secondary:has(> input:checked) > label::after {
+  border-color: var(--nv-secondary);
+}
+.form-switch-line.line > label::after {
+  height: var(--nv-switch-line-height-2);
+}
+.form-switch-line.line:has(> input:checked) > label::after {
+  background-color: var(--nv-control-color);
+}
+.form-switch-line.line.primary:has(> input:checked) > label::after {
+  background-color: var(--nv-primary);
+}
+.form-switch-line.line.success:has(> input:checked) > label::after {
+  background-color: var(--nv-success);
+}
+.form-switch-line.line.info:has(> input:checked) > label::after {
+  background-color: var(--nv-info);
+}
+.form-switch-line.line.warning:has(> input:checked) > label::after {
+  background-color: var(--nv-warning);
+}
+.form-switch-line.line.danger:has(> input:checked) > label::after {
+  background-color: var(--nv-danger);
+}
+.form-switch-line.line.danger:has(> input:checked) > label::after {
+  background-color: var(--nv-danger);
 }/*# sourceMappingURL=main.css.map */

@@ -10,13 +10,13 @@ $align-icon: 0.75rem;
     font-family: "Font-Regular";
   }
   &:has(> .icon-left) {
-    > .form-control {
+    > .form-input {
       padding-left: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
     }
   }
 
   &:has(> .icon-right) {
-    > .form-control {
+    > .form-input {
       padding-right: calc(var(--nv-control-padding-inline) + ($align-icon * 2));
     }
   }
@@ -53,12 +53,12 @@ $align-icon: 0.75rem;
       color: var(--nv-placeholder);
       cursor: text;
     }
-    > .form-control {
+    > .form-input {
       &::placeholder {
         color: transparent;
       }
     }
-    &:has(> .form-control:focus, > .form-control:not(:placeholder-shown)) {
+    &:has(> .form-input:focus, > .form-input:not(:placeholder-shown)) {
       > label {
         top: -0.85rem;
         left: 0;
