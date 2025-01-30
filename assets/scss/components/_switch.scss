@@ -1,3 +1,4 @@
+//switch
 .form-switch {
   display: inline-flex;
   > input {
@@ -37,81 +38,18 @@
       }
     }
   }
-  &.primary {
-    > label {
-      border-color: var(--nv-primary);
-      &::before {
-        background-color: var(--nv-primary);
-      }
-    }
-    &:has(> input:checked) {
+  @each $key, $value in $control-colors {
+    &.#{$key} {
       > label {
-        background-color: var(--nv-primary);
+        border-color: $value;
+        &::before {
+          background-color: $value;
+        }
       }
-    }
-  }
-  &.success {
-    > label {
-      border-color: var(--nv-success);
-      &::before {
-        background-color: var(--nv-success);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        background-color: var(--nv-success);
-      }
-    }
-  }
-  &.info {
-    > label {
-      border-color: var(--nv-info);
-      &::before {
-        background-color: var(--nv-info);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        background-color: var(--nv-info);
-      }
-    }
-  }
-  &.warning {
-    > label {
-      border-color: var(--nv-warning);
-      &::before {
-        background-color: var(--nv-warning);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        background-color: var(--nv-warning);
-      }
-    }
-  }
-  &.danger {
-    > label {
-      border-color: var(--nv-danger);
-      &::before {
-        background-color: var(--nv-danger);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        background-color: var(--nv-danger);
-      }
-    }
-  }
-  &.secondary {
-    > label {
-      border-color: var(--nv-secondary);
-      &::before {
-        background-color: var(--nv-secondary);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        background-color: var(--nv-secondary);
+      &:has(> input:checked) {
+        > label {
+          background-color: $value;
+        }
       }
     }
   }
@@ -181,122 +119,24 @@
       }
     }
   }
-  &.primary {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-primary);
-      }
-      &::after {
-        background-color: var(--nv-primary);
-      }
-    }
-    &:has(> input:checked) {
+  @each $key, $value in $control-colors {
+    &.#{$key} {
       > label {
         &::before {
-          background-color: var(--nv-primary);
+          border: var(--nv-control-border-width) solid $value;
         }
         &::after {
-          border-color: var(--nv-primary);
+          background-color: $value;
         }
       }
-    }
-  }
-  &.success {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-success);
-      }
-      &::after {
-        background-color: var(--nv-success);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        &::before {
-          background-color: var(--nv-success);
-        }
-        &::after {
-          border-color: var(--nv-success);
-        }
-      }
-    }
-  }
-  &.info {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-info);
-      }
-      &::after {
-        background-color: var(--nv-info);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        &::before {
-          background-color: var(--nv-info);
-        }
-        &::after {
-          border-color: var(--nv-info);
-        }
-      }
-    }
-  }
-  &.warning {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-warning);
-      }
-      &::after {
-        background-color: var(--nv-warning);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        &::before {
-          background-color: var(--nv-warning);
-        }
-        &::after {
-          border-color: var(--nv-warning);
-        }
-      }
-    }
-  }
-  &.danger {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-danger);
-      }
-      &::after {
-        background-color: var(--nv-danger);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        &::before {
-          background-color: var(--nv-danger);
-        }
-        &::after {
-          border-color: var(--nv-danger);
-        }
-      }
-    }
-  }
-  &.secondary {
-    > label {
-      &::before {
-        border: var(--nv-control-border-width) solid var(--nv-secondary);
-      }
-      &::after {
-        background-color: var(--nv-secondary);
-      }
-    }
-    &:has(> input:checked) {
-      > label {
-        &::before {
-          background-color: var(--nv-secondary);
-        }
-        &::after {
-          border-color: var(--nv-secondary);
+      &:has(> input:checked) {
+        > label {
+          &::before {
+            background-color: $value;
+          }
+          &::after {
+            border-color: $value;
+          }
         }
       }
     }
@@ -314,56 +154,13 @@
         }
       }
     }
-    &.primary {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-primary);
-          }
-        }
-      }
-    }
-    &.success {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-success);
-          }
-        }
-      }
-    }
-    &.info {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-info);
-          }
-        }
-      }
-    }
-    &.warning {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-warning);
-          }
-        }
-      }
-    }
-    &.danger {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-danger);
-          }
-        }
-      }
-    }
-    &.danger {
-      &:has(> input:checked) {
-        > label {
-          &::after {
-            background-color: var(--nv-danger);
+    @each $key, $value in $control-colors {
+      &.#{$key} {
+        &:has(> input:checked) {
+          > label {
+            &::after {
+              background-color: $value;
+            }
           }
         }
       }

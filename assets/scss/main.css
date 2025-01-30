@@ -27,8 +27,10 @@
   --nv-switch-box-shadow: 0px 0px 4px 1px var(--nv-muted);
   --nv-switch-line-rounded: 1rem;
   --nv-switch-line-width: 2.1rem;
-  --nv-switch-line-height: .75rem;
-  --nv-switch-line-height-2: .25rem;
+  --nv-switch-line-height: 0.75rem;
+  --nv-switch-line-height-2: 0.25rem;
+  --nv-checkbox-size: 1.25rem;
+  --nv-checkbox-check-size: 1.25rem;
   --nv-card-border-radius: 0.75rem;
   --nv-card-padding: 1.5rem;
   --nv-card-box-shadow: -1px -1px 8px 1px var(--nv-muted);
@@ -9719,6 +9721,17 @@
   content: "賈";
 }
 
+.bi::before,
+[class^=bi-]::before,
+[class*=" bi-"]::before {
+  line-height: unset;
+  vertical-align: middle;
+}
+
+[class^=bi-] {
+  display: inline-flex;
+}
+
 *,
 ::after,
 ::before {
@@ -10425,6 +10438,8 @@ h6 {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
   outline: unset;
   border: unset;
   border-radius: var(--nv-btn-border-radius);
@@ -10439,38 +10454,27 @@ h6 {
   border-radius: var(--nv-btn-border-radius-rounded);
 }
 .btn.btn-icon {
-  display: flex;
   justify-items: center;
   justify-content: center;
-  align-items: center;
   padding: var(--nv-btn-icon-rounded);
+  width: 2rem;
+  height: 2rem;
 }
 .btn.icon-rounded {
   border-radius: 50%;
 }
+.btn > .icon {
+  display: inline-flex;
+}
+.btn > .icon.icon-right {
+  padding-left: 0.35rem;
+}
+.btn > .icon.icon-left {
+  padding-right: 0.35rem;
+}
 .btn.btn-primary {
   background-color: var(--nv-primary);
-  color: #fff;
-}
-.btn.btn-success {
-  background-color: var(--nv-success);
-  color: #fff;
-}
-.btn.btn-info {
-  background-color: var(--nv-info);
-  color: #fff;
-}
-.btn.btn-warning {
-  background-color: var(--nv-warning);
-  color: #fff;
-}
-.btn.btn-danger {
-  background-color: var(--nv-danger);
-  color: #fff;
-}
-.btn.btn-secondary {
-  background-color: var(--nv-secondary);
-  color: #fff;
+  color: var(--nv-white);
 }
 .btn.btn-primary-outline {
   border: var(--nv-control-border-width) solid var(--nv-primary);
@@ -10479,7 +10483,11 @@ h6 {
 .btn.btn-primary-outline:hover {
   border: unset;
   background-color: var(--nv-primary);
-  color: #fff;
+  color: var(--nv-white);
+}
+.btn.btn-success {
+  background-color: var(--nv-success);
+  color: var(--nv-white);
 }
 .btn.btn-success-outline {
   border: var(--nv-control-border-width) solid var(--nv-success);
@@ -10488,7 +10496,11 @@ h6 {
 .btn.btn-success-outline:hover {
   border: unset;
   background-color: var(--nv-success);
-  color: #fff;
+  color: var(--nv-white);
+}
+.btn.btn-info {
+  background-color: var(--nv-info);
+  color: var(--nv-white);
 }
 .btn.btn-info-outline {
   border: var(--nv-control-border-width) solid var(--nv-info);
@@ -10497,7 +10509,11 @@ h6 {
 .btn.btn-info-outline:hover {
   border: unset;
   background-color: var(--nv-info);
-  color: #fff;
+  color: var(--nv-white);
+}
+.btn.btn-warning {
+  background-color: var(--nv-warning);
+  color: var(--nv-white);
 }
 .btn.btn-warning-outline {
   border: var(--nv-control-border-width) solid var(--nv-warning);
@@ -10506,7 +10522,11 @@ h6 {
 .btn.btn-warning-outline:hover {
   border: unset;
   background-color: var(--nv-warning);
-  color: #fff;
+  color: var(--nv-white);
+}
+.btn.btn-danger {
+  background-color: var(--nv-danger);
+  color: var(--nv-white);
 }
 .btn.btn-danger-outline {
   border: var(--nv-control-border-width) solid var(--nv-danger);
@@ -10515,7 +10535,11 @@ h6 {
 .btn.btn-danger-outline:hover {
   border: unset;
   background-color: var(--nv-danger);
-  color: #fff;
+  color: var(--nv-white);
+}
+.btn.btn-secondary {
+  background-color: var(--nv-secondary);
+  color: var(--nv-white);
 }
 .btn.btn-secondary-outline {
   border: var(--nv-control-border-width) solid var(--nv-secondary);
@@ -10524,13 +10548,7 @@ h6 {
 .btn.btn-secondary-outline:hover {
   border: unset;
   background-color: var(--nv-secondary);
-  color: #fff;
-}
-.btn > .icon.icon-right {
-  padding-left: 0.25rem;
-}
-.btn > .icon.icon-left {
-  padding-right: 0.25rem;
+  color: var(--nv-white);
 }
 
 .form-input {
@@ -10827,6 +10845,101 @@ h6 {
 .form-switch-line.line.danger:has(> input:checked) > label::after {
   background-color: var(--nv-danger);
 }
-.form-switch-line.line.danger:has(> input:checked) > label::after {
+.form-switch-line.line.secondary:has(> input:checked) > label::after {
+  background-color: var(--nv-secondary);
+}
+
+.form-checkbox {
+  display: inline-flex;
+}
+.form-checkbox > input {
+  display: none;
+}
+.form-checkbox > label {
+  cursor: pointer;
+  height: var(--nv-checkbox-size);
+  width: var(--nv-checkbox-size);
+  border: var(--nv-control-border-width) solid var(--nv-control-color);
+  border-radius: var(--nv-control-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--nv-switch-box-shadow);
+}
+.form-checkbox:has(> input:checked) > label::before {
+  font-family: "bootstrap-icons";
+  content: "\f26e";
+  font-size: var(--nv-checkbox-check-size);
+}
+.form-checkbox.primary > label {
+  border-color: var(--nv-primary);
+}
+.form-checkbox.primary:has(> input:checked) > label::before {
+  color: var(--nv-primary);
+}
+.form-checkbox.primary.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.primary.filled:has(> input:checked) > label {
+  background-color: var(--nv-primary);
+}
+.form-checkbox.success > label {
+  border-color: var(--nv-success);
+}
+.form-checkbox.success:has(> input:checked) > label::before {
+  color: var(--nv-success);
+}
+.form-checkbox.success.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.success.filled:has(> input:checked) > label {
+  background-color: var(--nv-success);
+}
+.form-checkbox.info > label {
+  border-color: var(--nv-info);
+}
+.form-checkbox.info:has(> input:checked) > label::before {
+  color: var(--nv-info);
+}
+.form-checkbox.info.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.info.filled:has(> input:checked) > label {
+  background-color: var(--nv-info);
+}
+.form-checkbox.warning > label {
+  border-color: var(--nv-warning);
+}
+.form-checkbox.warning:has(> input:checked) > label::before {
+  color: var(--nv-warning);
+}
+.form-checkbox.warning.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.warning.filled:has(> input:checked) > label {
+  background-color: var(--nv-warning);
+}
+.form-checkbox.danger > label {
+  border-color: var(--nv-danger);
+}
+.form-checkbox.danger:has(> input:checked) > label::before {
+  color: var(--nv-danger);
+}
+.form-checkbox.danger.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.danger.filled:has(> input:checked) > label {
   background-color: var(--nv-danger);
+}
+.form-checkbox.secondary > label {
+  border-color: var(--nv-secondary);
+}
+.form-checkbox.secondary:has(> input:checked) > label::before {
+  color: var(--nv-secondary);
+}
+.form-checkbox.secondary.filled:has(> input:checked) > label::before {
+  color: var(--nv-white);
+}
+.form-checkbox.secondary.filled:has(> input:checked) > label {
+  background-color: var(--nv-secondary);
 }/*# sourceMappingURL=main.css.map */

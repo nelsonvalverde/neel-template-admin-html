@@ -23,40 +23,12 @@
     border-color: var(--nv-primary);
     box-shadow: var(--nv-control-box-shadow);
   }
-  &.primary {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-primary);
-    }
-  }
-  &.success {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-success);
-    }
-  }
-  &.info {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-info);
-    }
-  }
-  &.warning {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-warning);
-    }
-  }
-  &.danger {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-danger);
-    }
-  }
-  &.secondary {
-    &:hover,
-    &:focus {
-      border-color: var(--nv-secondary);
+  @each $key, $value in $control-colors {
+    &.#{$key} {
+      &:hover,
+      &:focus {
+        border-color: $value;
+      }
     }
   }
   &.rounded {

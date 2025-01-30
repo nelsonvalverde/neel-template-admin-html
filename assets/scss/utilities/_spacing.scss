@@ -37,7 +37,7 @@
     gap: $value;
   }
 
-  @each $keybp, $valuebp in $flex-breakpoints {
+  @each $keybp, $valuebp in $grid-breakpoints {
     //Margin
     .m-#{$keybp}-#{$key} {
       margin: $value;

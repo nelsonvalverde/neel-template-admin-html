@@ -36,8 +36,12 @@
 
   --nv-switch-line-rounded: 1rem;
   --nv-switch-line-width: 2.1rem;
-  --nv-switch-line-height: .75rem;
-  --nv-switch-line-height-2: .25rem;
+  --nv-switch-line-height: 0.75rem;
+  --nv-switch-line-height-2: 0.25rem;
+
+  //Checkbox
+  --nv-checkbox-size: 1.25rem;
+  --nv-checkbox-check-size: 1.25rem;
 
   //card
   --nv-card-border-radius: 0.75rem;
@@ -84,8 +88,8 @@
   --nv-gray-rgb: 47, 43, 61;
 }
 
-$number-columns: 12;
-$flex-breakpoints: (
+$column-numbers: 12;
+$grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
@@ -99,4 +103,13 @@ $spacing-scale: (
   2: 0.5rem,
   3: 1rem,
   4: 2rem,
+);
+
+$control-colors: (
+  primary: var(--nv-primary),
+  success: var(--nv-success),
+  info: var(--nv-info),
+  warning: var(--nv-warning),
+  danger: var(--nv-danger),
+  secondary: var(--nv-secondary),
 );

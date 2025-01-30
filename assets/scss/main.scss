@@ -9,6 +9,7 @@
 
 //Vendors
 @import "./vendors/bootstrap-icons/bootstrap-icons";
+@import "./vendors/bootstrap-icons/bootstrap-icons-custom";
 //Base
 @import "./base/reset";
 @import "./base/typography";
@@ -27,6 +28,7 @@
 @import "./components/dropdown";
 @import "./components/input";
 @import "./components/switch";
+@import "./components/checkbox";
 //Pages
 @import "./pages/home";
 //Themes
