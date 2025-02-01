@@ -12,9 +12,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--nv-switch-box-shadow);
+    box-shadow: var(--nv-control-box-shadow);
   }
-  &:has(> input:checked) {
+  &:has(> input[type="checkbox"]:checked) {
     > label {
       &::before {
         font-family: "bootstrap-icons";
